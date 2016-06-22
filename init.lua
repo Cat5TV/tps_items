@@ -59,6 +59,31 @@ minetest.register_tool("tps_items:pick_power", {
 	},
 })
 
+
+minetest.register_craftitem("tps_items:remove_stick", {
+	description = "TPS Admin Stick",
+	inventory_image = "tps_items_adminstick.png",
+	groups = {not_in_creative_inventory=1},
+	on_use = function(item, user, pointed_thing)
+		if pointed_thing.type == "node" then
+			minetest.env:remove_node(pointed_thing.under)
+		elseif pointed_thing.type == "object" then
+			obj = pointed_thing.ref
+			if obj ~= nil then
+				if obj:get_player_name() ~= nil then
+					-- Player
+					obj:set_hp(-1)
+				else
+					-- Mob or other entity
+					obj:remove()
+				end
+			end
+		end
+	end,
+	stack_max = 1,
+	liquids_pointable = true,
+})
+
 dofile(minetest.get_modpath("tps_items").."/crafts.lua")
 
 print("TPS Items Loaded!")
