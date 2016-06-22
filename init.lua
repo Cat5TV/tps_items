@@ -60,7 +60,7 @@ minetest.register_tool("tps_items:pick_power", {
 })
 
 
-minetest.register_craftitem("tps_items:remove_stick", {
+minetest.register_craftitem("tps_items:admin_stick", {
 	description = "TPS Admin Stick",
 	inventory_image = "tps_items_adminstick.png",
 	groups = {not_in_creative_inventory=1},
