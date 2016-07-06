@@ -42,6 +42,7 @@ minetest.register_tool("tps_items:pick_founder", {
 minetest.register_tool("tps_items:pick_power", {
 	description = "TPS Power Pickaxe",
 	inventory_image = "tps_items_power_pick.png",
+	groups = {not_in_creative_inventory=1},
 	tool_capabilities = {
 		full_punch_interval = 1.0,
 		stack_max=1,
@@ -55,7 +56,6 @@ minetest.register_tool("tps_items:pick_power", {
 			explody={times={[1]=3, [2]=3, [3]=3}, uses=10, maxlevel=3}
 		},
 		damage_groups = {fleshy=10},
-    		groups = {not_in_creative_inventory=1},
 	},
 })
 
