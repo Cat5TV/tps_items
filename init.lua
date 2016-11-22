@@ -65,19 +65,22 @@ minetest.register_craftitem("tps_items:admin_stick", {
 	inventory_image = "tps_items_adminstick.png",
 	groups = {not_in_creative_inventory=1},
 	on_use = function(item, user, pointed_thing)
-		if pointed_thing.type == "node" then
-			minetest.env:remove_node(pointed_thing.under)
-		elseif pointed_thing.type == "object" then
-			obj = pointed_thing.ref
-			if obj ~= nil then
-				if obj:get_player_name() ~= nil then
-					-- Player
-					obj:set_hp(-1)
-				else
-					-- Mob or other entity
-					obj:remove()
+		local pname = user:get_player_name()
+		if minetest.check_player_privs(pname, {protections_bypass=true}
+			if pointed_thing.type == "node" then
+				minetest.env:remove_node(pointed_thing.under)
+			elseif pointed_thing.type == "object" then
+				obj = pointed_thing.ref
+				if obj ~= nil then
+					if obj:get_player_name() ~= nil then
+						-- Player
+						obj:set_hp(-1)
+					else
+						-- Mob or other entity
+						obj:remove()
+					end
 				end
-			end
+			end	
 		end
 	end,
 	stack_max = 1,
