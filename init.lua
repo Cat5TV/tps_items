@@ -66,7 +66,7 @@ minetest.register_craftitem("tps_items:admin_stick", {
 	groups = {not_in_creative_inventory=1},
 	on_use = function(item, user, pointed_thing)
 		local pname = user:get_player_name()
-		if minetest.check_player_privs(pname, {protections_bypass=true}
+		if minetest.check_player_privs(pname, {protections_bypass=true}) then
 			if pointed_thing.type == "node" then
 				minetest.env:remove_node(pointed_thing.under)
 			elseif pointed_thing.type == "object" then
