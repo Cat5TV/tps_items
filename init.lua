@@ -95,8 +95,7 @@ if (minetest.get_modpath("3d_armor")) then
 		description = "TPS Admin Badge",
 		inventory_image = "tps_items_admin_badge_icon.png",
 		armor_groups = {fleshy=100},
-		groups = {armor_torso=1, armor_heal=100, armor_use=0,
-				not_in_creative_inventory=1},
+		groups = {armor_torso=1, armor_heal=100, armor_use=0, not_in_creative_inventory=1},
 		on_drop = function(itemstack, dropper, pos)
 			return
 		end,
