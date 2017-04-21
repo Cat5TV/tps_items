@@ -90,7 +90,7 @@ minetest.register_craftitem("tps_items:admin_stick", {
 	end,
 })
 
-if (minetest.get_modpath("armor")) then
+if (minetest.get_modpath("3d_armor")) then
 	armor:register_armor("tps_items:admin_badge", {
 		description = "TPS Admin Badge",
 		inventory_image = "tps_items_adminbadge.png",
