@@ -90,16 +90,18 @@ minetest.register_craftitem("tps_items:admin_stick", {
 	end,
 })
 
-minetest.register_armor("tps_items:admin_badge", {
-	description = "TPS Admin Badge",
-	inventory_image = "tps_items_adminbadge.png",
-	armor_groups = {fleshy=100},
-	groups = {armor_torso=1, armor_heal=100, armor_use=0,
-			not_in_creative_inventory=1},
-	on_drop = function(itemstack, dropper, pos)
-		return
-	end,
-})
+if (minetest.get_modpath("armor")) then
+	armor:register_armor("tps_items:admin_badge", {
+		description = "TPS Admin Badge",
+		inventory_image = "tps_items_adminbadge.png",
+		armor_groups = {fleshy=100},
+		groups = {armor_torso=1, armor_heal=100, armor_use=0,
+				not_in_creative_inventory=1},
+		on_drop = function(itemstack, dropper, pos)
+			return
+		end,
+	})
+end
 
 dofile(minetest.get_modpath("tps_items").."/crafts.lua")
 
