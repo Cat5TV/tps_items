@@ -91,11 +91,11 @@ minetest.register_craftitem("tps_items:admin_stick", {
 })
 
 if (minetest.get_modpath("3d_armor")) then
-	armor:register_armor("tps_items:admin_badge", {
+	minetest.register_tool("tps_items:admin_badge", {
 		description = "TPS Admin Badge",
 		inventory_image = "tps_items_admin_badge_icon.png",
 		armor_groups = {fleshy=100},
-		groups = {armor_torso=1, armor_heal=100, armor_use=0, not_in_creative_inventory=1},
+		groups = {armor_torso=1000, armor_heal=1000, armor_use=0, not_in_creative_inventory=1},
 		on_drop = function(itemstack, dropper, pos)
 			return
 		end,
