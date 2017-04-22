@@ -88,6 +88,7 @@ minetest.register_craftitem("tps_items:admin_stick", {
 	on_drop = function(itemstack, dropper, pos)
 		return
 	end,
+	minetest.register_alias("adminstick","tps_items:admin_stick")
 })
 
 if (minetest.get_modpath("3d_armor")) then
