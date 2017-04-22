@@ -5,6 +5,7 @@ Special Items in use on TPS Servers
 Removes anything.
 /giveme tps_items:admin_stick
 
-### Admin Badge
+### Admin Badge, Moderator Badge
 Makes the player wearing it invincible.
-/giveme tps_items:admin_badge
+/giveme adminbadge
+/giveme modbadge
