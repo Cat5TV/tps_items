@@ -115,6 +115,18 @@ if (minetest.get_modpath("3d_armor")) then
 	})
 	minetest.register_alias("modbadge","tps_items:moderator_badge")
 
+	-- Just cosmetic to show user as a helper
+	minetest.register_tool("tps_items:helper_badge", {
+		description = "TPS Helper Badge",
+		inventory_image = "tps_items_helper_badge_icon.png",
+		groups = {armor_torso=20, armor_heal=12, armor_use=50, armor_fire=1},
+		armor_groups = {fleshy=20, cracky=15, snappy=20, choppy=20, crumbly=20},
+		on_drop = function(itemstack, dropper, pos)
+			return
+		end,
+	})
+	minetest.register_alias("helperbadge","tps_items:helper_badge")
+
 end
 
 dofile(minetest.get_modpath("tps_items").."/crafts.lua")
