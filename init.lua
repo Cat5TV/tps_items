@@ -100,6 +100,20 @@ if (minetest.get_modpath("3d_armor")) then
 			return
 		end,
 	})
+	minetest.register_alias("adminbadge","tps_items:admin_badge")
+
+	-- Same functionality, just different visual
+	minetest.register_tool("tps_items:moderator_badge", {
+		description = "TPS Moderator Badge",
+		inventory_image = "tps_items_moderator_badge_icon.png",
+		armor_groups = {fleshy=100},
+		groups = {armor_torso=1000, armor_heal=1000, armor_use=0, not_in_creative_inventory=1},
+		on_drop = function(itemstack, dropper, pos)
+			return
+		end,
+	})
+	minetest.register_alias("modbadge","tps_items:moderator_badge")
+
 end
 
 dofile(minetest.get_modpath("tps_items").."/crafts.lua")
