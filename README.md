@@ -9,10 +9,16 @@ Removes anything.
 ```
 
 ### Admin Badge, Moderator Badge
-Makes the player wearing it invincible.
+Makes the player wearing it invincible and shows the player as staff.
 ```
 /giveme adminbadge
 ```
 ```
 /giveme modbadge
+```
+
+### Helper Badge
+Gives some good armor and shows the player as staff.
+```
+/giveme helperbadge
 ```
