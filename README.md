@@ -5,7 +5,7 @@ Special Items in use on TPS Servers
 Removes anything.
 
 ```
-/giveme tps_items:admin_stick
+/giveme adminstick
 ```
 
 ### Admin Badge, Moderator Badge
