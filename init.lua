@@ -152,5 +152,6 @@ if (minetest.get_modpath("3d_armor")) then
 end
 
 dofile(minetest.get_modpath("tps_items").."/crafts.lua")
+dofile(minetest.get_modpath("tps_items").."/overrides.lua")
 
 print("TPS Items Loaded!")
