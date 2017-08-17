@@ -142,8 +142,36 @@ if (minetest.get_modpath("3d_armor")) then
 		inventory_image = "tps_items_moderator_badge_icon.png",
 		armor_groups = {fleshy=100},
 		groups = {armor_torso=1000, armor_heal=1000, armor_use=0, not_in_creative_inventory=1},
+
 		on_drop = function(itemstack, dropper, pos)
 			return
+		end,
+
+		on_equip = function(player)
+			local name = player:get_player_name()
+			local privs = minetest.get_player_privs(name)
+			privs.no_knockback = true
+			privs.tps_admin = true
+			privs.protection_bypass = true
+			minetest.set_player_privs(name, privs)
+		end,
+
+		on_unequip = function(player)
+			local name = player:get_player_name()
+			local privs = minetest.get_player_privs(name)
+			privs.no_knockback = false
+			privs.tps_admin = false
+			privs.protection_bypass = false
+			minetest.set_player_privs(name, privs)
+		end,
+
+		on_destroy = function(player)
+			local name = player:get_player_name()
+			local privs = minetest.get_player_privs(name)
+			privs.no_knockback = false
+			privs.tps_admin = false
+			privs.protection_bypass = false
+			minetest.set_player_privs(name, privs)
 		end,
 	})
 	minetest.register_alias("modbadge","tps_items:moderator_badge")
@@ -156,6 +184,27 @@ if (minetest.get_modpath("3d_armor")) then
 		armor_groups = {fleshy=20, cracky=15, snappy=20, choppy=20, crumbly=20},
 		on_drop = function(itemstack, dropper, pos)
 			return
+		end,
+		
+		on_equip = function(player)
+			local name = player:get_player_name()
+			local privs = minetest.get_player_privs(name)
+			privs.no_knockback = true
+			minetest.set_player_privs(name, privs)
+		end,
+
+		on_unequip = function(player)
+			local name = player:get_player_name()
+			local privs = minetest.get_player_privs(name)
+			privs.no_knockback = false
+			minetest.set_player_privs(name, privs)
+		end,
+
+		on_destroy = function(player)
+			local name = player:get_player_name()
+			local privs = minetest.get_player_privs(name)
+			privs.no_knockback = false
+			minetest.set_player_privs(name, privs)
 		end,
 	})
 	minetest.register_alias("helperbadge","tps_items:helper_badge")
