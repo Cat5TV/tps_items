@@ -16,6 +16,11 @@ By Robbie Ferguson (My First Minetest Mod)
  
 --]]
 
+-- Privs
+
+-- Do not grant this. It is automatically added when the player puts on the admin badge and revoked when they remove it.
+minetest.register_privilege("tps_admin", {description = "TPS Admin", give_to_singleplayer=false})
+
 
 -- Tools
 
@@ -66,7 +71,7 @@ minetest.register_craftitem("tps_items:admin_stick", {
 	groups = {not_in_creative_inventory=1},
 	on_use = function(item, user, pointed_thing)
 		local pname = user:get_player_name()
-		if minetest.check_player_privs(pname, {protection_bypass=true}) then
+		if minetest.check_player_privs(pname, {tps_admin=true}) then
 			if pointed_thing.type == "node" then
 				minetest.env:remove_node(pointed_thing.under)
 			elseif pointed_thing.type == "object" then
@@ -106,6 +111,8 @@ if (minetest.get_modpath("3d_armor")) then
 			local name = player:get_player_name()
 			local privs = minetest.get_player_privs(name)
 			privs.no_knockback = true
+			privs.tps_admin = true
+			privs.protection_bypass = true
 			minetest.set_player_privs(name, privs)
 		end,
 
@@ -113,6 +120,8 @@ if (minetest.get_modpath("3d_armor")) then
 			local name = player:get_player_name()
 			local privs = minetest.get_player_privs(name)
 			privs.no_knockback = false
+			privs.tps_admin = false
+			privs.protection_bypass = false
 			minetest.set_player_privs(name, privs)
 		end,
 
@@ -120,6 +129,8 @@ if (minetest.get_modpath("3d_armor")) then
 			local name = player:get_player_name()
 			local privs = minetest.get_player_privs(name)
 			privs.no_knockback = false
+			privs.tps_admin = false
+			privs.protection_bypass = false
 			minetest.set_player_privs(name, privs)
 		end,
 	})
