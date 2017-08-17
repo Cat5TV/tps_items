@@ -2,7 +2,7 @@
 Special Items in use on TPS Servers
 
 ### Admin Stick
-Removes anything.
+Removes anything. In order to use this, the player must be wearing an Admin Badge or Moderator Badge.
 
 ```
 /giveme adminstick
