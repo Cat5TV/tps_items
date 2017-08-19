@@ -180,7 +180,7 @@ if (minetest.get_modpath("3d_armor")) then
 	minetest.register_tool("tps_items:helper_badge", {
 		description = "TPS Helper Badge",
 		inventory_image = "tps_items_helper_badge_icon.png",
-		groups = {armor_torso=20, armor_heal=12, armor_use=50, armor_fire=1},
+		groups = {armor_torso=20, armor_heal=12, armor_use=50, armor_fire=1, not_in_creative_inventory=1},
 		armor_groups = {fleshy=20, cracky=15, snappy=20, choppy=20, crumbly=20},
 		on_drop = function(itemstack, dropper, pos)
 			return
